@@ -1,0 +1,23 @@
+.row {
+    display: flex;
+    width: 500px;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.row div {
+    border: 1px solid black;
+    padding: 40px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.operators {
+    display: flex;
+    width: 500px;
+}
+.operators div {
+    display: flex;
+    border: 1px solid black;
+    padding: 40px;
+}
