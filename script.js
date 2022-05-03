@@ -32,22 +32,31 @@ document.querySelectorAll(".operator").forEach(operator => {
 //Evalute operations
 equals.addEventListener("click", () => {
     secondNumber = parseInt(displayNumber);
-    console.log(currentOperator)
-
-    let value = operate(currentOperator, firstNumber, secondNumber)
-    console.log(value)
+    if (firstNumber && secondNumber) {
+    let result = operate(currentOperator, firstNumber, secondNumber)
+    displayNumber = result;
+    display.textContent = result;
+    }
 })
-
-
-
 
 function clearDisplay () {
     display.textContent = ''
+    firstNumber = null
+    secondNumber = null
 }
 
 //Performs basic math operation depending on user input
-function operate (operatorFunction, a, b) {
-    return operatorFunction(a, b)
+function operate (operator, a, b) {
+    switch (operator) {
+        case 'add':
+            return add(a, b);
+        case 'subtract':
+            return subtract(a, b)
+        case 'divide':
+            return divide(a, b)
+        case 'multiply':
+            return multiply(a, b);
+    }
 }
 
 //Basic calculation functions
