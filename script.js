@@ -1,14 +1,16 @@
 
 //Click event to watch for pressing of the number key divs.
-let numberKeys = document.querySelectorAll(".number")
-for (key in numberKeys) {
+document.querySelectorAll(".number").forEach(key => {
+    key.addEventListener("click", function() {
+        console.log(key.id);
+    })
+});
 
-}
 
-//Function to display number when button is pressed
-function inputNumber (pressedKey) {
-    let pressedKey = 
-}
+// //Function to display number when button is pressed
+// function inputNumber (pressedKey) {
+//     let pressedKey = 
+// }
 
 //Performs basic math operation depending on user input
 function operate (operatorFunction, a, b) {
