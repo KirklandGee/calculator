@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="display">
-        <div>Dummy Numbers</div>
+        <div id="display-numbers"></div>
     </div> 
     <div class="row one">
         <div class="number" id="1">1</div>
@@ -27,16 +27,16 @@
         <div class="number" id="9">9</div>
     </div>
     <div class="row four">
-        <div class="number">+</div>
-        <div class="number">0</div>
-        <div class="number">-</div>
+        <div class="operator" id="add">+</div>
+        <div class="number" id="0">0</div>
+        <div class="operator" id="subtract">-</div>
     </div>
     <div class="operators">
-        <div class="number">/</div>
-        <div class="number">*</div>
-        <div class="number">=</div>
+        <div class="operator" id="divide">/</div>
+        <div class="operator" id="multiply">*</div>
+        <div class="equals">=</div>
     </div>
-    <button>Clear</button>
+    <button onclick="clearDisplay()">Clear</button>
     <script src="./script.js" defer></script>
 </body>
 </html>
