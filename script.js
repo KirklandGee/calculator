@@ -1,8 +1,8 @@
-let displayNumber = ""
 const display = document.querySelector("#display-numbers")
 const equals = document.querySelector(".equals")
 
 //Variables to store user inputs
+let displayNumber = ""
 let firstNumber = 0
 let secondNumber = 0
 let currentOperator = ''
@@ -14,33 +14,45 @@ document.querySelectorAll(".number").forEach(key => {
         // console.log(key.id);
         display.textContent += key.id;
         displayNumber += key.id;
-        console.log(displayNumber)
     })
 });
 
 //Click event for operators
 document.querySelectorAll(".operator").forEach(operator => {
     operator.addEventListener("click", function() {
+        secondNumber = parseInt(displayNumber)
+        if (firstNumber && secondNumber) {
+            calculate()
+            currentOperator = operator.id;
+            return
+        }
         firstNumber = parseInt(displayNumber);
         displayNumber = '';
         currentOperator = operator.id;
-        console.log(currentOperator)
         display.textContent = ''
     })
 });
 
 //Evalute operations
 equals.addEventListener("click", () => {
-    secondNumber = parseInt(displayNumber);
+        calculate();
+})
+
+//Performs a calculation with firstNumber & secondNumber
+function calculate () {
     if (firstNumber && secondNumber) {
     let result = operate(currentOperator, firstNumber, secondNumber)
     displayNumber = result;
-    display.textContent = result;
+    firstNumber = parseInt(result)
+    display.textContent = displayNumber;
+    firstNumber = null
+    secondNumber = null
     }
-})
+}
 
 function clearDisplay () {
     display.textContent = ''
+    displayNumber = ''
     firstNumber = null
     secondNumber = null
 }
